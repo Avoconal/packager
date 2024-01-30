@@ -15,83 +15,43 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QCheckBox, QGridLayout, QLabel,
-    QPushButton, QScrollArea, QSizePolicy, QVBoxLayout,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QCheckBox, QGridLayout, QHBoxLayout,
+    QLabel, QLineEdit, QListWidget, QListWidgetItem,
+    QPushButton, QSizePolicy, QToolButton, QWidget)
 
 class Ui_basic(object):
     def setupUi(self, basic):
         if not basic.objectName():
             basic.setObjectName(u"basic")
-        basic.resize(300, 200)
+        basic.resize(300, 203)
         self.gridLayout = QGridLayout(basic)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.btn_select = QPushButton(basic)
+        self.btn_select = QToolButton(basic)
         self.btn_select.setObjectName(u"btn_select")
 
         self.gridLayout.addWidget(self.btn_select, 0, 0, 1, 1)
 
-        self.scroll_plugin = QScrollArea(basic)
-        self.scroll_plugin.setObjectName(u"scroll_plugin")
-        self.scroll_plugin.setWidgetResizable(True)
-        self.plugin_list = QWidget()
+        self.plugin_list = QListWidget(basic)
+        __qlistwidgetitem = QListWidgetItem(self.plugin_list)
+        __qlistwidgetitem.setCheckState(Qt.Unchecked);
+        __qlistwidgetitem1 = QListWidgetItem(self.plugin_list)
+        __qlistwidgetitem1.setCheckState(Qt.Unchecked);
+        __qlistwidgetitem2 = QListWidgetItem(self.plugin_list)
+        __qlistwidgetitem2.setCheckState(Qt.Unchecked);
+        __qlistwidgetitem3 = QListWidgetItem(self.plugin_list)
+        __qlistwidgetitem3.setCheckState(Qt.Unchecked);
+        __qlistwidgetitem4 = QListWidgetItem(self.plugin_list)
+        __qlistwidgetitem4.setCheckState(Qt.Unchecked);
+        __qlistwidgetitem5 = QListWidgetItem(self.plugin_list)
+        __qlistwidgetitem5.setCheckState(Qt.Unchecked);
+        __qlistwidgetitem6 = QListWidgetItem(self.plugin_list)
+        __qlistwidgetitem6.setCheckState(Qt.Unchecked);
         self.plugin_list.setObjectName(u"plugin_list")
-        self.plugin_list.setGeometry(QRect(0, 0, 150, 272))
-        self.verticalLayout = QVBoxLayout(self.plugin_list)
-        self.verticalLayout.setObjectName(u"verticalLayout")
-        self.matplotlib = QCheckBox(self.plugin_list)
-        self.matplotlib.setObjectName(u"matplotlib")
+        self.plugin_list.setTabKeyNavigation(True)
+        self.plugin_list.setAlternatingRowColors(True)
+        self.plugin_list.setSpacing(1)
 
-        self.verticalLayout.addWidget(self.matplotlib)
-
-        self.multiprocessing = QCheckBox(self.plugin_list)
-        self.multiprocessing.setObjectName(u"multiprocessing")
-
-        self.verticalLayout.addWidget(self.multiprocessing)
-
-        self.numpy = QCheckBox(self.plugin_list)
-        self.numpy.setObjectName(u"numpy")
-
-        self.verticalLayout.addWidget(self.numpy)
-
-        self.pyqt5 = QCheckBox(self.plugin_list)
-        self.pyqt5.setObjectName(u"pyqt5")
-
-        self.verticalLayout.addWidget(self.pyqt5)
-
-        self.pyqt6 = QCheckBox(self.plugin_list)
-        self.pyqt6.setObjectName(u"pyqt6")
-
-        self.verticalLayout.addWidget(self.pyqt6)
-
-        self.pyside2 = QCheckBox(self.plugin_list)
-        self.pyside2.setObjectName(u"pyside2")
-
-        self.verticalLayout.addWidget(self.pyside2)
-
-        self.pyside6 = QCheckBox(self.plugin_list)
-        self.pyside6.setObjectName(u"pyside6")
-
-        self.verticalLayout.addWidget(self.pyside6)
-
-        self.tensorflow = QCheckBox(self.plugin_list)
-        self.tensorflow.setObjectName(u"tensorflow")
-
-        self.verticalLayout.addWidget(self.tensorflow)
-
-        self.tk_inter = QCheckBox(self.plugin_list)
-        self.tk_inter.setObjectName(u"tk_inter")
-
-        self.verticalLayout.addWidget(self.tk_inter)
-
-        self.torch = QCheckBox(self.plugin_list)
-        self.torch.setObjectName(u"torch")
-
-        self.verticalLayout.addWidget(self.torch)
-
-        self.scroll_plugin.setWidget(self.plugin_list)
-
-        self.gridLayout.addWidget(self.scroll_plugin, 1, 0, 5, 2)
+        self.gridLayout.addWidget(self.plugin_list, 1, 0, 5, 2)
 
         self.checkbox_onefile = QCheckBox(basic)
         self.checkbox_onefile.setObjectName(u"checkbox_onefile")
@@ -122,6 +82,21 @@ class Ui_basic(object):
 
         self.gridLayout.addWidget(self.btn_start, 5, 2, 1, 1)
 
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.label_addition = QLabel(basic)
+        self.label_addition.setObjectName(u"label_addition")
+
+        self.horizontalLayout_2.addWidget(self.label_addition)
+
+        self.lineedit_addition = QLineEdit(basic)
+        self.lineedit_addition.setObjectName(u"lineedit_addition")
+
+        self.horizontalLayout_2.addWidget(self.lineedit_addition)
+
+
+        self.gridLayout.addLayout(self.horizontalLayout_2, 6, 0, 1, 3)
+
         self.label_path = QLabel(basic)
         self.label_path.setObjectName(u"label_path")
         font = QFont()
@@ -132,6 +107,13 @@ class Ui_basic(object):
 
         self.gridLayout.addWidget(self.label_path, 0, 1, 1, 2)
 
+        QWidget.setTabOrder(self.btn_select, self.plugin_list)
+        QWidget.setTabOrder(self.plugin_list, self.checkbox_onefile)
+        QWidget.setTabOrder(self.checkbox_onefile, self.checkbox_disable_console)
+        QWidget.setTabOrder(self.checkbox_disable_console, self.checkbox_standalone)
+        QWidget.setTabOrder(self.checkbox_standalone, self.checkbox_require_admin)
+        QWidget.setTabOrder(self.checkbox_require_admin, self.btn_start)
+        QWidget.setTabOrder(self.btn_start, self.lineedit_addition)
 
         self.retranslateUi(basic)
 
@@ -141,21 +123,31 @@ class Ui_basic(object):
     def retranslateUi(self, basic):
         basic.setWindowTitle(QCoreApplication.translate("basic", u"Form", None))
         self.btn_select.setText(QCoreApplication.translate("basic", u"\u9009\u62e9\u6587\u4ef6", None))
-        self.matplotlib.setText(QCoreApplication.translate("basic", u"matplotlib", None))
-        self.multiprocessing.setText(QCoreApplication.translate("basic", u"multiprocessing", None))
-        self.numpy.setText(QCoreApplication.translate("basic", u"numpy", None))
-        self.pyqt5.setText(QCoreApplication.translate("basic", u"pyqt5", None))
-        self.pyqt6.setText(QCoreApplication.translate("basic", u"pyqt6", None))
-        self.pyside2.setText(QCoreApplication.translate("basic", u"pyside2", None))
-        self.pyside6.setText(QCoreApplication.translate("basic", u"pyside6", None))
-        self.tensorflow.setText(QCoreApplication.translate("basic", u"tensorflow", None))
-        self.tk_inter.setText(QCoreApplication.translate("basic", u"tk-inter", None))
-        self.torch.setText(QCoreApplication.translate("basic", u"torch", None))
+
+        __sortingEnabled = self.plugin_list.isSortingEnabled()
+        self.plugin_list.setSortingEnabled(False)
+        ___qlistwidgetitem = self.plugin_list.item(0)
+        ___qlistwidgetitem.setText(QCoreApplication.translate("basic", u"matplotlib", None));
+        ___qlistwidgetitem1 = self.plugin_list.item(1)
+        ___qlistwidgetitem1.setText(QCoreApplication.translate("basic", u"multiprocessing", None));
+        ___qlistwidgetitem2 = self.plugin_list.item(2)
+        ___qlistwidgetitem2.setText(QCoreApplication.translate("basic", u"pyqt5", None));
+        ___qlistwidgetitem3 = self.plugin_list.item(3)
+        ___qlistwidgetitem3.setText(QCoreApplication.translate("basic", u"pyqt6", None));
+        ___qlistwidgetitem4 = self.plugin_list.item(4)
+        ___qlistwidgetitem4.setText(QCoreApplication.translate("basic", u"pyside2", None));
+        ___qlistwidgetitem5 = self.plugin_list.item(5)
+        ___qlistwidgetitem5.setText(QCoreApplication.translate("basic", u"pyside6", None));
+        ___qlistwidgetitem6 = self.plugin_list.item(6)
+        ___qlistwidgetitem6.setText(QCoreApplication.translate("basic", u"tk-inter", None));
+        self.plugin_list.setSortingEnabled(__sortingEnabled)
+
         self.checkbox_onefile.setText(QCoreApplication.translate("basic", u"\u5355\u6587\u4ef6", None))
         self.checkbox_disable_console.setText(QCoreApplication.translate("basic", u"\u7981\u7528\u547d\u4ee4\u884c", None))
         self.checkbox_standalone.setText(QCoreApplication.translate("basic", u"\u5305\u542b\u8fd0\u884c\u73af\u5883", None))
         self.checkbox_require_admin.setText(QCoreApplication.translate("basic", u"\u8bf7\u6c42\u7ba1\u7406\u5458\u6743\u9650", None))
         self.btn_start.setText(QCoreApplication.translate("basic", u"\u6253\u5305", None))
+        self.label_addition.setText(QCoreApplication.translate("basic", u"\u989d\u5916\u53c2\u6570\uff1a", None))
         self.label_path.setText("")
     # retranslateUi
 

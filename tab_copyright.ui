@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>300</width>
-    <height>200</height>
+    <height>223</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QPushButton" name="btn_icon">
+      <widget class="QToolButton" name="btn_select_icon">
        <property name="maximumSize">
         <size>
          <width>75</width>
@@ -30,7 +30,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="label_icon">
+      <widget class="QLabel" name="label_icon_path">
        <property name="text">
         <string/>
        </property>
@@ -39,24 +39,48 @@
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QLabel" name="label_icon_preview">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="btn_clear_icon">
+       <property name="text">
+        <string>清空</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
    <item>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <widget class="QLabel" name="label_project">
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_company">
        <property name="text">
-        <string>项目名：</string>
+        <string>企业名：</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="lineedit_project"/>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="label_version">
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="lineedit_company">
        <property name="text">
-        <string>版本：</string>
+        <string>Avoconal</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_copyright">
+       <property name="text">
+        <string>版权：</string>
        </property>
       </widget>
      </item>
@@ -67,25 +91,32 @@
        </property>
       </widget>
      </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_company">
-       <property name="text">
-        <string>企业名：</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QLineEdit" name="lineedit_company"/>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="label_copyright">
-       <property name="text">
-        <string>版权：</string>
-       </property>
-      </widget>
-     </item>
      <item row="3" column="1">
-      <widget class="QLineEdit" name="lineedit_copyright"/>
+      <widget class="QLineEdit" name="lineedit_copyright">
+       <property name="text">
+        <string>abcdesteve</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="lineedit_project"/>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="lineedit_trademark"/>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_version">
+       <property name="text">
+        <string>版本：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_project">
+       <property name="text">
+        <string>项目名：</string>
+       </property>
+      </widget>
      </item>
      <item row="4" column="0">
       <widget class="QLabel" name="label_trademark">
@@ -94,13 +125,19 @@
        </property>
       </widget>
      </item>
-     <item row="4" column="1">
-      <widget class="QLineEdit" name="lineedit_trademark"/>
-     </item>
     </layout>
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>btn_select_icon</tabstop>
+  <tabstop>btn_clear_icon</tabstop>
+  <tabstop>lineedit_project</tabstop>
+  <tabstop>lineedit_version</tabstop>
+  <tabstop>lineedit_company</tabstop>
+  <tabstop>lineedit_copyright</tabstop>
+  <tabstop>lineedit_trademark</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

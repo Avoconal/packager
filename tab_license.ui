@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>300</width>
-    <height>200</height>
+    <height>216</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,17 +21,36 @@
      </property>
     </widget>
    </item>
+   <item row="0" column="1">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>117</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="0" column="2">
+    <widget class="QCheckBox" name="checkbox_dark_mode">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string>深色模式</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
    <item row="1" column="0">
     <widget class="QLabel" name="label_user">
      <property name="text">
       <string>用户名：</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="1">
-    <widget class="QLineEdit" name="lineedit_user">
-     <property name="enabled">
-      <bool>false</bool>
      </property>
     </widget>
    </item>
@@ -42,7 +61,7 @@
      </property>
     </widget>
    </item>
-   <item row="2" column="1">
+   <item row="2" column="1" colspan="2">
     <widget class="QDateEdit" name="dateedit">
      <property name="enabled">
       <bool>false</bool>
@@ -62,24 +81,10 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="1">
-    <widget class="QLineEdit" name="lineedit_bios_sn">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-    </widget>
-   </item>
    <item row="4" column="0">
     <widget class="QLabel" name="label_system_sn">
      <property name="text">
       <string>系统序列号：</string>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="1">
-    <widget class="QLineEdit" name="lineedit_system_sn">
-     <property name="enabled">
-      <bool>false</bool>
      </property>
     </widget>
    </item>
@@ -90,15 +95,75 @@
      </property>
     </widget>
    </item>
-   <item row="5" column="1">
+   <item row="6" column="0">
+    <widget class="QLabel" name="label_link">
+     <property name="text">
+      <string>在线链接：</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1" colspan="2">
+    <widget class="QLineEdit" name="lineedit_user">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1" colspan="2">
+    <widget class="QLineEdit" name="lineedit_bios_sn">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1" colspan="2">
+    <widget class="QLineEdit" name="lineedit_system_sn">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1" colspan="2">
     <widget class="QLineEdit" name="lineedit_disk_sn">
      <property name="enabled">
       <bool>false</bool>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="1" colspan="2">
+    <widget class="QLineEdit" name="lineedit_link">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>true</bool>
      </property>
     </widget>
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>checkbox_switch</tabstop>
+  <tabstop>checkbox_dark_mode</tabstop>
+  <tabstop>lineedit_user</tabstop>
+  <tabstop>dateedit</tabstop>
+  <tabstop>lineedit_bios_sn</tabstop>
+  <tabstop>lineedit_system_sn</tabstop>
+  <tabstop>lineedit_disk_sn</tabstop>
+  <tabstop>lineedit_link</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

@@ -45,13 +45,14 @@ class Cmd(QMainWindow, Ui_cmd):
         global window
         window.basic.btn_select.setEnabled(True)
         window.basic.btn_start.setEnabled(True)
+        os.system('explorer .')
 
 
 class Link_select(QMainWindow, Ui_link_select):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.setWindowFlags(self.windowFlags() | Qt.WindowStaysOnTopHint)
+        self.setWindowFlags(Qt.WindowStaysOnTopHint)
 
         self.btn_select.clicked.connect(self.select)
 
@@ -121,7 +122,8 @@ class Main(QMainWindow, Ui_gui):
         self.link_pos = [0, 0]
 
         # tab4 init
-        self.copyright.btn_icon.clicked.connect(self.select_icon)
+        self.copyright.btn_select_icon.clicked.connect(self.select_icon)
+        self.copyright.btn_clear_icon.clicked.connect(self.clear_icon)
 
         # window size update
         self.tabWidget.currentChanged.connect(self.window_size_update)
@@ -132,19 +134,19 @@ class Main(QMainWindow, Ui_gui):
     def window_size_update(self):
         self.animation = QPropertyAnimation(self, b'size')
         self.animation.setDuration(500)
-        self.animation.setEasingCurve(QEasingCurve.InOutQuad)
+        self.animation.setEasingCurve(QEasingCurve.InOutBack)
         match self.tabWidget.currentIndex():
             case 0:
                 self.animation.setEndValue(QSize(350, 250))
                 # self.resize(350, 250)
             case 1:
-                self.animation.setEndValue(QSize(600, 300))
+                self.animation.setEndValue(QSize(700, 300))
                 # self.resize(500, 300)
             case 2:
                 self.animation.setEndValue(QSize(350, 200))
                 # self.resize(350, 200)
             case 3:
-                self.animation.setEndValue(QSize(300, 200))
+                self.animation.setEndValue(QSize(400, 200))
                 # self.resize(300, 200)
         self.animation.start()
         self.link_table_update_size()
@@ -164,9 +166,18 @@ class Main(QMainWindow, Ui_gui):
         self.basic.btn_select.setEnabled(False)
         self.basic.btn_start.setEnabled(False)
 
-        plugin = self.basic.scroll_plugin.findChildren(QCheckBox)
-        plugin = ' '.join(['--enable-plugin='+i.text()
-                          for i in plugin if i.isChecked()])
+        dir, source_code_name = os.path.split(self.basic.label_path.text())
+
+        # license init
+        if self.license.checkbox_switch.isChecked():
+            with open('id.py', 'w', encoding='utf-8')as file:
+                file.write("""user='{}'\neol={}\nbios_sn='{}'\nos_sn='{}'\ndisk_sn='{}'\nlink='{}'\ndark_mode={}\nsource_code='{}'""".format(self.license.lineedit_user.text(), self.license.dateedit.date(
+                ).toString('yyyyMMdd'), self.license.lineedit_bios_sn.text(), self.license.lineedit_system_sn.text(), self.license.lineedit_disk_sn.text(), self.license.lineedit_link.text(), self.license.checkbox_dark_mode.isChecked(), source_code_name))
+
+        # plugin init
+        # plugin = self.basic.scroll_plugin.findChildren(QCheckBox)
+        plugin = ' '.join(['--enable-plugin='+self.basic.plugin_list.item(i).text()
+                          for i in range(self.basic.plugin_list.count()) if self.basic.plugin_list.item(i).checkState() == Qt.Checked])
 
         argv = [
             '--onefile' if self.basic.checkbox_onefile.isChecked() else '',
@@ -181,7 +192,7 @@ class Main(QMainWindow, Ui_gui):
             self.link.column_dir.rowCount())]
 
         copyright = [
-            f'--windows-icon-from-ico="{self.copyright.label_icon.text()}"' if self.copyright.label_icon.text() else '',
+            f'--windows-icon-from-ico="{self.copyright.label_icon_path.text()}"' if self.copyright.label_icon_path.text() else '',
             f'--product-name="{self.copyright.lineedit_project.text()}"'if self.copyright.lineedit_project.text() else '',
             f'--product-version="{self.copyright.lineedit_version.text()}"'if self.copyright.lineedit_version.text() else '',
             f'--company-name="{self.copyright.lineedit_company.text()}"'if self.copyright.lineedit_company.text() else '',
@@ -189,13 +200,22 @@ class Main(QMainWindow, Ui_gui):
             f'--trademarks="{self.copyright.lineedit_trademark.text()}"'if self.copyright.lineedit_trademark.text() else ''
         ]
 
-        # popen=os.popen(f'nuitka --output-dir="{os.path.split(__file__)[0]}/output" {" ".join(argv)} {plugin}')
-        os.chdir(os.path.split(self.basic.label_path.text())[0])
+        # popen=os.popen(f'python -m nuitka --output-dir="{os.path.split(__file__)[0]}/output" {" ".join(argv)} {plugin}')
+
+        if self.license.checkbox_switch.isChecked():
+            os.system(
+                f'''copy "{os.path.realpath('id.py')}" "{dir}/id.py" /V /Y''')
+            os.system(
+                f'''copy "{os.path.realpath('sl_app_encrypt.py')}" "{dir}/sl_app_encrypt.py" /V /Y''')
+            compile_file = os.path.join(dir, 'sl_app_encrypt.py')
+        else:
+            compile_file = self.basic.label_path.text()
+
+        os.chdir(dir)
         print(
-            f'nuitka --output-dir="{os.path.split(__file__)[0]}/output" {" ".join(argv)} {plugin} {" ".join(link_file)} {" ".join(link_dir)} {" ".join(copyright)} {self.basic.label_path.text()}')
+            f'python -m nuitka --output-dir="{os.path.split(__file__)[0]}/output" {" ".join(argv)} {plugin} {" ".join(link_file)} {" ".join(link_dir)} {" ".join(copyright)} {self.basic.lineedit_addition.text()} {compile_file}')
         popen = os.popen(
-            f'nuitka --output-dir="{os.path.split(__file__)[0]}/output" {" ".join(argv)} {plugin} {" ".join(link_file)} {" ".join(link_dir)} {" ".join(copyright)} {self.basic.label_path.text()}')
-        # popen=os.popen('tree')
+            f'python -m nuitka --output-dir="{os.path.split(__file__)[0]}/output" {" ".join(argv)} {plugin} {" ".join(link_file)} {" ".join(link_dir)} {" ".join(copyright)} {self.basic.lineedit_addition.text()} {compile_file}')
         self.cmd = Cmd(popen)
 
     # tab2
@@ -219,20 +239,28 @@ class Main(QMainWindow, Ui_gui):
     # tab3
     def update_encryption_status(self):
         temp = self.license.checkbox_switch.isChecked()
+        self.license.checkbox_dark_mode.setEnabled(temp)
         self.license.lineedit_user.setEnabled(temp)
         self.license.dateedit.setEnabled(temp)
         self.license.lineedit_bios_sn.setEnabled(temp)
         self.license.lineedit_system_sn.setEnabled(temp)
         self.license.lineedit_disk_sn.setEnabled(temp)
+        self.license.lineedit_link.setEnabled(temp)
 
     # tab4
     def select_icon(self):
         path = QFileDialog.getOpenFileName(
             self, '请选择文件', filter='图标文件 (*.png *.ico);;图标文件 (*.png);;图标文件 (*.ico)')[0]
         if path:
-            self.copyright.label_icon.setText(path)
+            self.copyright.label_icon_path.setText(path)
+            self.copyright.label_icon_preview.setPixmap(
+                QPixmap(path).scaled(50, 50))
         else:
             QMessageBox.warning(self, '警告', '路径无效')
+
+    def clear_icon(self):
+        self.copyright.label_icon_path.setText('')
+        self.copyright.label_icon_preview.setPixmap(QPixmap())
 
 
 if __name__ == '__main__':
