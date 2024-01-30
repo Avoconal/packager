@@ -78,7 +78,7 @@ class Main(QMainWindow, Ui_gui):
         if self.checkbox_require_admin.isChecked():
             argv+=' --windows-uac-admin '
         print(r'nuitka --standalone --output-dir="D:\Users\abcdesteve\Desktop\神龙\神龙授权器\output" {} "{}"'.format(argv,self.label_path.text()))
-        os.chdir(r'D:\Users\abcdesteve\Desktop\神龙\神龙授权器\core')
+        os.chdir(r'D:\Users\abcdesteve\Desktop\神龙\神龙授权器\神龙授权器v1.1\core')
         self.cmd=Cmd(os.popen(r'nuitka --standalone --output-dir="D:\Users\abcdesteve\Desktop\神龙\神龙授权器\output" {} "{}"'.format(argv,self.label_path.text())))
         self.cmd.show()
 if __name__ == '__main__':

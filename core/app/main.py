@@ -2,6 +2,7 @@ import json
 import os
 import sys
 import re
+import qdarkstyle
 from app.trans_core import get
 from PySide6.QtCore import *
 from PySide6.QtWebEngineWidgets import QWebEngineView
@@ -232,5 +233,6 @@ class Main(QMainWindow, Ui_gui):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
+    app.setStyleSheet(qdarkstyle.load_stylesheet(qt_api='pyside6'))
     window = Main()
     sys.exit(app.exec())
