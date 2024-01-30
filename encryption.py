@@ -1,11 +1,6 @@
-import sys
-import wmi
-import ntplib,time,webbrowser
-from id import *
-from PySide6.QtWidgets import *
+import ntplib,sys,wmi,id,time,webbrowser
 from PySide6.QtGui import *
-import app.main as Main
-
+from PySide6.QtWidgets import *
 
 class Notification(QMainWindow):
     def __init__(self):
