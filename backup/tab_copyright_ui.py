@@ -16,8 +16,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
-    QLineEdit, QSizePolicy, QToolButton, QVBoxLayout,
-    QWidget)
+    QSizePolicy, QVBoxLayout, QWidget)
+
+from qfluentwidgets import (LineEdit, PrimaryPushButton, ToolButton)
 
 class Ui_copyright(object):
     def setupUi(self, copyright):
@@ -28,7 +29,7 @@ class Ui_copyright(object):
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.btn_select_icon = QToolButton(copyright)
+        self.btn_select_icon = PrimaryPushButton(copyright)
         self.btn_select_icon.setObjectName(u"btn_select_icon")
         self.btn_select_icon.setMaximumSize(QSize(75, 16777215))
 
@@ -50,7 +51,7 @@ class Ui_copyright(object):
 
         self.horizontalLayout.addWidget(self.label_icon_preview)
 
-        self.btn_clear_icon = QToolButton(copyright)
+        self.btn_clear_icon = ToolButton(copyright)
         self.btn_clear_icon.setObjectName(u"btn_clear_icon")
 
         self.horizontalLayout.addWidget(self.btn_clear_icon)
@@ -65,7 +66,7 @@ class Ui_copyright(object):
 
         self.gridLayout.addWidget(self.label_company, 2, 0, 1, 1)
 
-        self.lineedit_company = QLineEdit(copyright)
+        self.lineedit_company = LineEdit(copyright)
         self.lineedit_company.setObjectName(u"lineedit_company")
 
         self.gridLayout.addWidget(self.lineedit_company, 2, 1, 1, 1)
@@ -75,22 +76,22 @@ class Ui_copyright(object):
 
         self.gridLayout.addWidget(self.label_copyright, 3, 0, 1, 1)
 
-        self.lineedit_version = QLineEdit(copyright)
+        self.lineedit_version = LineEdit(copyright)
         self.lineedit_version.setObjectName(u"lineedit_version")
 
         self.gridLayout.addWidget(self.lineedit_version, 1, 1, 1, 1)
 
-        self.lineedit_copyright = QLineEdit(copyright)
+        self.lineedit_copyright = LineEdit(copyright)
         self.lineedit_copyright.setObjectName(u"lineedit_copyright")
 
         self.gridLayout.addWidget(self.lineedit_copyright, 3, 1, 1, 1)
 
-        self.lineedit_project = QLineEdit(copyright)
+        self.lineedit_project = LineEdit(copyright)
         self.lineedit_project.setObjectName(u"lineedit_project")
 
         self.gridLayout.addWidget(self.lineedit_project, 0, 1, 1, 1)
 
-        self.lineedit_trademark = QLineEdit(copyright)
+        self.lineedit_trademark = LineEdit(copyright)
         self.lineedit_trademark.setObjectName(u"lineedit_trademark")
 
         self.gridLayout.addWidget(self.lineedit_trademark, 4, 1, 1, 1)

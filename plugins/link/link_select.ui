@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>link_select</class>
+ <widget class="QMainWindow" name="link_select">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>300</width>
+    <height>100</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>文件链接</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="PushButton" name="btn_select">
+      <property name="text">
+       <string>选择文件/目录</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="RadioButton" name="radio_file">
+      <property name="text">
+       <string>文件</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_from">
+      <property name="text">
+       <string>源文件/目录：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="2" colspan="2">
+     <widget class="LineEdit" name="lineedit_to"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_to">
+      <property name="text">
+       <string>目标路径：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="3">
+     <widget class="RadioButton" name="radio_dir">
+      <property name="text">
+       <string>目录</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2" colspan="2">
+     <widget class="LineEdit" name="lineedit_from"/>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PushButton</class>
+   <extends>QPushButton</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>RadioButton</class>
+   <extends>QRadioButton</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>LineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>btn_select</tabstop>
+  <tabstop>radio_file</tabstop>
+  <tabstop>radio_dir</tabstop>
+  <tabstop>lineedit_from</tabstop>
+  <tabstop>lineedit_to</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

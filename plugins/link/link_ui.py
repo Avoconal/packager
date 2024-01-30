@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tab_link.ui'
+## Form generated from reading UI file 'link.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.2
 ##
@@ -16,8 +16,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QGridLayout, QHeaderView, QLabel,
-    QPushButton, QSizePolicy, QTableWidget, QTableWidgetItem,
-    QWidget)
+    QSizePolicy, QTableWidgetItem, QWidget)
+
+from qfluentwidgets import (PrimaryPushButton, TableWidget)
 
 class Ui_link(object):
     def setupUi(self, link):
@@ -40,7 +41,7 @@ class Ui_link(object):
 
         self.gridLayout.addWidget(self.label_dir, 0, 1, 1, 1)
 
-        self.column_file = QTableWidget(link)
+        self.column_file = TableWidget(link)
         if (self.column_file.columnCount() < 2):
             self.column_file.setColumnCount(2)
         __qtablewidgetitem = QTableWidgetItem()
@@ -54,7 +55,7 @@ class Ui_link(object):
 
         self.gridLayout.addWidget(self.column_file, 1, 0, 1, 1)
 
-        self.column_dir = QTableWidget(link)
+        self.column_dir = TableWidget(link)
         if (self.column_dir.columnCount() < 2):
             self.column_dir.setColumnCount(2)
         __qtablewidgetitem2 = QTableWidgetItem()
@@ -68,12 +69,12 @@ class Ui_link(object):
 
         self.gridLayout.addWidget(self.column_dir, 1, 1, 1, 1)
 
-        self.btn_add = QPushButton(link)
+        self.btn_add = PrimaryPushButton(link)
         self.btn_add.setObjectName(u"btn_add")
 
         self.gridLayout.addWidget(self.btn_add, 2, 0, 1, 1)
 
-        self.btn_del = QPushButton(link)
+        self.btn_del = PrimaryPushButton(link)
         self.btn_del.setObjectName(u"btn_del")
 
         self.gridLayout.addWidget(self.btn_del, 2, 1, 1, 1)

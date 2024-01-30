@@ -15,9 +15,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QGridLayout, QLabel, QLineEdit,
-    QMainWindow, QPushButton, QRadioButton, QSizePolicy,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QGridLayout, QLabel, QMainWindow,
+    QSizePolicy, QWidget)
+
+from qfluentwidgets import (LineEdit, PushButton, RadioButton)
 
 class Ui_link_select(object):
     def setupUi(self, link_select):
@@ -28,12 +29,12 @@ class Ui_link_select(object):
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout = QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.btn_select = QPushButton(self.centralwidget)
+        self.btn_select = PushButton(self.centralwidget)
         self.btn_select.setObjectName(u"btn_select")
 
         self.gridLayout.addWidget(self.btn_select, 0, 0, 1, 1)
 
-        self.radio_file = QRadioButton(self.centralwidget)
+        self.radio_file = RadioButton(self.centralwidget)
         self.radio_file.setObjectName(u"radio_file")
         self.radio_file.setChecked(True)
 
@@ -44,7 +45,7 @@ class Ui_link_select(object):
 
         self.gridLayout.addWidget(self.label_from, 1, 0, 1, 1)
 
-        self.lineedit_to = QLineEdit(self.centralwidget)
+        self.lineedit_to = LineEdit(self.centralwidget)
         self.lineedit_to.setObjectName(u"lineedit_to")
 
         self.gridLayout.addWidget(self.lineedit_to, 3, 2, 1, 2)
@@ -54,12 +55,12 @@ class Ui_link_select(object):
 
         self.gridLayout.addWidget(self.label_to, 3, 0, 1, 1)
 
-        self.radio_dir = QRadioButton(self.centralwidget)
+        self.radio_dir = RadioButton(self.centralwidget)
         self.radio_dir.setObjectName(u"radio_dir")
 
         self.gridLayout.addWidget(self.radio_dir, 0, 3, 1, 1)
 
-        self.lineedit_from = QLineEdit(self.centralwidget)
+        self.lineedit_from = LineEdit(self.centralwidget)
         self.lineedit_from.setObjectName(u"lineedit_from")
 
         self.gridLayout.addWidget(self.lineedit_from, 1, 2, 1, 2)

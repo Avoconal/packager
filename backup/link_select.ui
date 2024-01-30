@@ -16,14 +16,14 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <widget class="QPushButton" name="btn_select">
+     <widget class="PushButton" name="btn_select">
       <property name="text">
        <string>选择文件/目录</string>
       </property>
      </widget>
     </item>
     <item row="0" column="2">
-     <widget class="QRadioButton" name="radio_file">
+     <widget class="RadioButton" name="radio_file">
       <property name="text">
        <string>文件</string>
       </property>
@@ -40,7 +40,7 @@
      </widget>
     </item>
     <item row="3" column="2" colspan="2">
-     <widget class="QLineEdit" name="lineedit_to"/>
+     <widget class="LineEdit" name="lineedit_to"/>
     </item>
     <item row="3" column="0">
      <widget class="QLabel" name="label_to">
@@ -50,18 +50,35 @@
      </widget>
     </item>
     <item row="0" column="3">
-     <widget class="QRadioButton" name="radio_dir">
+     <widget class="RadioButton" name="radio_dir">
       <property name="text">
        <string>目录</string>
       </property>
      </widget>
     </item>
     <item row="1" column="2" colspan="2">
-     <widget class="QLineEdit" name="lineedit_from"/>
+     <widget class="LineEdit" name="lineedit_from"/>
     </item>
    </layout>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PushButton</class>
+   <extends>QPushButton</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>RadioButton</class>
+   <extends>QRadioButton</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>LineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+ </customwidgets>
  <tabstops>
   <tabstop>btn_select</tabstop>
   <tabstop>radio_file</tabstop>

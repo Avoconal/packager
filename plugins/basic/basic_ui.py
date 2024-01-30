@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tab_basic.ui'
+## Form generated from reading UI file 'basic.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.2
 ##
@@ -15,23 +15,20 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QCheckBox, QGridLayout, QHBoxLayout,
-    QLabel, QLineEdit, QListWidget, QListWidgetItem,
-    QPushButton, QSizePolicy, QToolButton, QWidget)
+from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
+    QListWidgetItem, QSizePolicy, QWidget)
+
+from qfluentwidgets import (CheckBox, ComboBox, LineEdit, ListWidget,
+    PrimaryPushButton, PushButton)
 
 class Ui_basic(object):
     def setupUi(self, basic):
         if not basic.objectName():
             basic.setObjectName(u"basic")
-        basic.resize(300, 203)
+        basic.resize(509, 301)
         self.gridLayout = QGridLayout(basic)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.btn_select = QToolButton(basic)
-        self.btn_select.setObjectName(u"btn_select")
-
-        self.gridLayout.addWidget(self.btn_select, 0, 0, 1, 1)
-
-        self.plugin_list = QListWidget(basic)
+        self.plugin_list = ListWidget(basic)
         __qlistwidgetitem = QListWidgetItem(self.plugin_list)
         __qlistwidgetitem.setCheckState(Qt.Unchecked);
         __qlistwidgetitem1 = QListWidgetItem(self.plugin_list)
@@ -51,36 +48,36 @@ class Ui_basic(object):
         self.plugin_list.setAlternatingRowColors(True)
         self.plugin_list.setSpacing(1)
 
-        self.gridLayout.addWidget(self.plugin_list, 1, 0, 5, 2)
+        self.gridLayout.addWidget(self.plugin_list, 2, 0, 5, 1)
 
-        self.checkbox_onefile = QCheckBox(basic)
+        self.checkbox_onefile = CheckBox(basic)
         self.checkbox_onefile.setObjectName(u"checkbox_onefile")
         self.checkbox_onefile.setChecked(True)
 
-        self.gridLayout.addWidget(self.checkbox_onefile, 1, 2, 1, 1)
+        self.gridLayout.addWidget(self.checkbox_onefile, 2, 1, 1, 1)
 
-        self.checkbox_disable_console = QCheckBox(basic)
+        self.checkbox_disable_console = CheckBox(basic)
         self.checkbox_disable_console.setObjectName(u"checkbox_disable_console")
         self.checkbox_disable_console.setChecked(True)
 
-        self.gridLayout.addWidget(self.checkbox_disable_console, 2, 2, 1, 1)
+        self.gridLayout.addWidget(self.checkbox_disable_console, 3, 1, 1, 1)
 
-        self.checkbox_standalone = QCheckBox(basic)
+        self.checkbox_standalone = CheckBox(basic)
         self.checkbox_standalone.setObjectName(u"checkbox_standalone")
         self.checkbox_standalone.setChecked(True)
 
-        self.gridLayout.addWidget(self.checkbox_standalone, 3, 2, 1, 1)
+        self.gridLayout.addWidget(self.checkbox_standalone, 4, 1, 1, 1)
 
-        self.checkbox_require_admin = QCheckBox(basic)
+        self.checkbox_require_admin = CheckBox(basic)
         self.checkbox_require_admin.setObjectName(u"checkbox_require_admin")
 
-        self.gridLayout.addWidget(self.checkbox_require_admin, 4, 2, 1, 1)
+        self.gridLayout.addWidget(self.checkbox_require_admin, 5, 1, 1, 1)
 
-        self.btn_start = QPushButton(basic)
+        self.btn_start = PrimaryPushButton(basic)
         self.btn_start.setObjectName(u"btn_start")
         self.btn_start.setEnabled(False)
 
-        self.gridLayout.addWidget(self.btn_start, 5, 2, 1, 1)
+        self.gridLayout.addWidget(self.btn_start, 6, 1, 1, 1)
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
@@ -89,25 +86,69 @@ class Ui_basic(object):
 
         self.horizontalLayout_2.addWidget(self.label_addition)
 
-        self.lineedit_addition = QLineEdit(basic)
+        self.lineedit_addition = LineEdit(basic)
         self.lineedit_addition.setObjectName(u"lineedit_addition")
 
         self.horizontalLayout_2.addWidget(self.lineedit_addition)
 
 
-        self.gridLayout.addLayout(self.horizontalLayout_2, 6, 0, 1, 3)
+        self.gridLayout.addLayout(self.horizontalLayout_2, 7, 0, 1, 2)
 
-        self.label_path = QLabel(basic)
-        self.label_path.setObjectName(u"label_path")
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.btn_select_file = PushButton(basic)
+        self.btn_select_file.setObjectName(u"btn_select_file")
+        sizePolicy = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.btn_select_file.sizePolicy().hasHeightForWidth())
+        self.btn_select_file.setSizePolicy(sizePolicy)
+
+        self.horizontalLayout_3.addWidget(self.btn_select_file)
+
+        self.label_path_file = QLabel(basic)
+        self.label_path_file.setObjectName(u"label_path_file")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Maximum)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.label_path_file.sizePolicy().hasHeightForWidth())
+        self.label_path_file.setSizePolicy(sizePolicy1)
         font = QFont()
         font.setPointSize(8)
-        self.label_path.setFont(font)
-        self.label_path.setScaledContents(True)
-        self.label_path.setWordWrap(True)
+        self.label_path_file.setFont(font)
+        self.label_path_file.setScaledContents(True)
+        self.label_path_file.setWordWrap(True)
 
-        self.gridLayout.addWidget(self.label_path, 0, 1, 1, 2)
+        self.horizontalLayout_3.addWidget(self.label_path_file)
 
-        QWidget.setTabOrder(self.btn_select, self.plugin_list)
+
+        self.gridLayout.addLayout(self.horizontalLayout_3, 1, 0, 1, 2)
+
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.btn_select_executor = PushButton(basic)
+        self.btn_select_executor.setObjectName(u"btn_select_executor")
+        sizePolicy.setHeightForWidth(self.btn_select_executor.sizePolicy().hasHeightForWidth())
+        self.btn_select_executor.setSizePolicy(sizePolicy)
+
+        self.horizontalLayout.addWidget(self.btn_select_executor)
+
+        self.combobox_executor = ComboBox(basic)
+        self.combobox_executor.setObjectName(u"combobox_executor")
+
+        self.horizontalLayout.addWidget(self.combobox_executor)
+
+        self.checkbox_nuitka = CheckBox(basic)
+        self.checkbox_nuitka.setObjectName(u"checkbox_nuitka")
+        sizePolicy.setHeightForWidth(self.checkbox_nuitka.sizePolicy().hasHeightForWidth())
+        self.checkbox_nuitka.setSizePolicy(sizePolicy)
+
+        self.horizontalLayout.addWidget(self.checkbox_nuitka)
+
+
+        self.gridLayout.addLayout(self.horizontalLayout, 0, 0, 1, 2)
+
+        QWidget.setTabOrder(self.btn_select_file, self.plugin_list)
         QWidget.setTabOrder(self.plugin_list, self.checkbox_onefile)
         QWidget.setTabOrder(self.checkbox_onefile, self.checkbox_disable_console)
         QWidget.setTabOrder(self.checkbox_disable_console, self.checkbox_standalone)
@@ -122,7 +163,6 @@ class Ui_basic(object):
 
     def retranslateUi(self, basic):
         basic.setWindowTitle(QCoreApplication.translate("basic", u"Form", None))
-        self.btn_select.setText(QCoreApplication.translate("basic", u"\u9009\u62e9\u6587\u4ef6", None))
 
         __sortingEnabled = self.plugin_list.isSortingEnabled()
         self.plugin_list.setSortingEnabled(False)
@@ -148,6 +188,10 @@ class Ui_basic(object):
         self.checkbox_require_admin.setText(QCoreApplication.translate("basic", u"\u8bf7\u6c42\u7ba1\u7406\u5458\u6743\u9650", None))
         self.btn_start.setText(QCoreApplication.translate("basic", u"\u6253\u5305", None))
         self.label_addition.setText(QCoreApplication.translate("basic", u"\u989d\u5916\u53c2\u6570\uff1a", None))
-        self.label_path.setText("")
+        self.btn_select_file.setText(QCoreApplication.translate("basic", u"\u9009\u62e9\u6587\u4ef6", None))
+        self.label_path_file.setText("")
+        self.btn_select_executor.setText(QCoreApplication.translate("basic", u"\u9009\u62e9\u89e3\u91ca\u5668", None))
+        self.combobox_executor.setPlaceholderText(QCoreApplication.translate("basic", u"\u672a\u68c0\u6d4b\u5230Python\u7f16\u8bd1\u5668\uff0c\u53ef\u62d6\u62fd\u5bfc\u5165", None))
+        self.checkbox_nuitka.setText(QCoreApplication.translate("basic", u"Nuitka", None))
     # retranslateUi
 
