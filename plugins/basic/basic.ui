@@ -208,7 +208,7 @@
       </widget>
      </item>
      <item>
-      <widget class="CheckBox" name="checkbox_nuitka">
+      <widget class="RadioButton" name="checkbox_nuitka">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -217,6 +217,25 @@
        </property>
        <property name="text">
         <string>Nuitka</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="RadioButton" name="radioButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Pyinstaller</string>
        </property>
       </widget>
      </item>
@@ -253,6 +272,11 @@
   <customwidget>
    <class>ComboBox</class>
    <extends>QComboBox</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>RadioButton</class>
+   <extends>QRadioButton</extends>
    <header>qfluentwidgets</header>
   </customwidget>
  </customwidgets>

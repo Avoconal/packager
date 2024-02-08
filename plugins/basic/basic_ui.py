@@ -19,7 +19,7 @@ from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
     QListWidgetItem, QSizePolicy, QWidget)
 
 from qfluentwidgets import (CheckBox, ComboBox, LineEdit, ListWidget,
-    PrimaryPushButton, PushButton)
+    PrimaryPushButton, PushButton, RadioButton)
 
 class Ui_basic(object):
     def setupUi(self, basic):
@@ -138,12 +138,21 @@ class Ui_basic(object):
 
         self.horizontalLayout.addWidget(self.combobox_executor)
 
-        self.checkbox_nuitka = CheckBox(basic)
+        self.checkbox_nuitka = RadioButton(basic)
         self.checkbox_nuitka.setObjectName(u"checkbox_nuitka")
         sizePolicy.setHeightForWidth(self.checkbox_nuitka.sizePolicy().hasHeightForWidth())
         self.checkbox_nuitka.setSizePolicy(sizePolicy)
+        self.checkbox_nuitka.setCheckable(True)
+        self.checkbox_nuitka.setChecked(True)
 
         self.horizontalLayout.addWidget(self.checkbox_nuitka)
+
+        self.radioButton = RadioButton(basic)
+        self.radioButton.setObjectName(u"radioButton")
+        sizePolicy.setHeightForWidth(self.radioButton.sizePolicy().hasHeightForWidth())
+        self.radioButton.setSizePolicy(sizePolicy)
+
+        self.horizontalLayout.addWidget(self.radioButton)
 
 
         self.gridLayout.addLayout(self.horizontalLayout, 0, 0, 1, 2)
@@ -193,5 +202,6 @@ class Ui_basic(object):
         self.btn_select_executor.setText(QCoreApplication.translate("basic", u"\u9009\u62e9\u89e3\u91ca\u5668", None))
         self.combobox_executor.setPlaceholderText(QCoreApplication.translate("basic", u"\u672a\u68c0\u6d4b\u5230Python\u7f16\u8bd1\u5668\uff0c\u53ef\u62d6\u62fd\u5bfc\u5165", None))
         self.checkbox_nuitka.setText(QCoreApplication.translate("basic", u"Nuitka", None))
+        self.radioButton.setText(QCoreApplication.translate("basic", u"Pyinstaller", None))
     # retranslateUi
 

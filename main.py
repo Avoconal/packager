@@ -45,9 +45,8 @@ class Main(QMainWindow, Ui_gui):
             QIcon(os.path.join(os.path.dirname(__file__), 'icon', 'license.svg')))
         self.tab_link.btn_add.setIcon(FluentIcon.ADD)
         self.tab_link.btn_del.setIcon(FluentIcon.DELETE)
-
-        self.signal_connect()
         self.show()
+        self.signal_connect()
 
     def signal_connect(self):
         # window size update
