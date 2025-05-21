@@ -1,0 +1,2 @@
+简易的Python打包工具，目前支持nuitka，未来计划支持pyinstaller
+更新延缓，遇到兼容性问题，在解决github action编译问题前可能不会更新
